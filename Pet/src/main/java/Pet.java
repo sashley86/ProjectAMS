@@ -4,8 +4,8 @@ public class Pet {
     private String name;
     
     //default constructor
-    public Pet(String name) {
-        this.name = name;
+    public Pet() {
+        this.name = "Pet Name";
     }
     //public get(accessor) or set(mutator) method for every private data field(except if it is a secret or read-only)
     public String getName() {
@@ -21,8 +21,8 @@ public class Pet {
     // main method
     public static void main (String[] args) {
         //instantiate Pet
-        Pet myPet1 = new Pet("Pet Name");
-        Pet myPet2 = new Pet(" ");
+        Pet myPet1 = new Pet();
+        Pet myPet2 = new Pet();
         myPet2.setName("Hyleigh");
         System.out.println(myPet1);
         System.out.println(myPet2);
