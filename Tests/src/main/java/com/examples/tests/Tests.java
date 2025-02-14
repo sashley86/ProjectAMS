@@ -1,27 +1,53 @@
 package com.examples.tests;
+import java.util.Scanner;
+
 /**
  *
  * @author AM
  */
 public class Tests {
-
-    public static void main(String[] args) {
-        // declare 3 variables
-        double myTest1 = 88.2;
-        double myTest2 = 78.9;
-        double myTest3 = 97.6;
+    private double ave;
+    private int count;
+    private int score;
+    
+    public Tests() {
+      // default constructor  
+    }
+    public double getAve() {
+        return ave;
+    }
+    public void getAverage() {
+        //declare a local variable for the sum and count of scores
+        double sum = 0;
+        int counts = 0;
+        //declare a scanner variable for user input
+        Scanner scans = new Scanner(System.in);
+        //prompt user to enter test scores and informing user how to quit
+        System.out.println("Enter test scores (enter -1 to quit): ");
+        int score = scans.nextInt();
         
-        System.out.println("Test Score 1: " + myTest1); // display test 1
-        System.out.println("Test Score 2: " + myTest2); // display test 2
-        System.out.println("Test Score 3: " + myTest3); // display test 3
-        
-        // adding 3 test scores and dividing the sum by 3
-         double myScores = (myTest1 + myTest2 + myTest3) /3;
-         
-        // format myScores to display 2 digits after decimal
-         String myScore = String.format("%.2f", myScores);
-        
-        // displaying the average of 3 tests
-        System.out.print("The average of 3 test scores is: " + myScore);
+        while (score != -1) {
+            sum += score;
+            count++;
+            System.out.println("Enter test scores (enter -1 to quit): ");
+            score = scans.nextInt(); 
+        }
+        //calculate to get the average
+        ave = sum / count ;
+    }
+    public int getCount() {
+        return count;
+    }
+    public int getScore() {
+        return score;
+    }
+    public void setScore(int newScore) {
+        this.score = newScore;
+    }
+    public String toString() {
+        // formatting average to display two digits after decimal point
+        String aves = String.format("%.2f" , ave);
+        // display results
+        return "The average of the " + count + " scores entered is " + aves + ".";
     }
 }
