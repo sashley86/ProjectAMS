@@ -3,6 +3,7 @@
 //add, subtract, multiply, divide
 //user is prompted for input consist of 2 numbers (double)
 import java.util.Scanner;
+
 public class Runner {
     public static void main(String[] args){
         //instantiate a Calc object
@@ -10,10 +11,39 @@ public class Runner {
         //get user input for two numbers
         Scanner scan = new Scanner(System.in);
         System.out.println("Please enter the first number: ");
-        double n1 = scan.nextDouble();
-        System.out.println("Please enter the second number: ");
-        double n2 = scan.nextDouble();
-
+        
+        double n1 = 0;
+        double n2 = 0;
+        boolean vNums;
+        do {
+            if(scan.hasNextInt()) {
+                n1 = scan.nextDouble();
+                vNums = true;
+            }
+            else{
+                System.out.println("Invalid entry.");
+                System.out.println("Please enter the first number: ");
+                vNums = false;
+                scan.next();
+            }
+            
+        }
+        while(!(vNums));
+        
+        do {
+            System.out.println("Please enter the second number: ");
+            if(scan.hasNextInt()) {
+                n2 = scan.nextDouble();
+                vNums = true;
+            }
+            else {
+                System.out.println("Invalid entry.");
+                vNums = false;
+                scan.next();
+            }
+        }
+        while(!(vNums));
+        
         //pass the numbers to the Calc object
         myCalculator.setNum1(n1);
         myCalculator.setNum2(n2);
