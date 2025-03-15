@@ -1,8 +1,3 @@
-
-/**
- *
- * @author AM
- */
 public class Runner {
     //exercises the ArrList class
 
@@ -27,7 +22,7 @@ public class Runner {
         //set a certain array element to a new value
         iArr.set(5, 6789);
 
-        //display the value of the that new value at position 5 (you can change this index)
+        //display the value of the new value at position 5 (you can change this index)
         System.out.println("The value of array element 5 is: " + iArr.get(5));
 
         //display all array data, watch for the changed element!

@@ -1,37 +1,34 @@
 import java.util.Random;
 import java.util.Arrays;
-import java.util.ArrayList;
-
-
 
 public class IntArray {
     // private fields
     private int length;
     private int myArray[];
     
+    // Constructor
     public IntArray (int l) {
-        this.length = l;
+        length = l;
         this.myArray = new int [l];
     }
+    // Clears the array
     public void clear() {
-        for (int i = 0; i < length; i++) { 
+        for (int i = 0; i < length; i++) {
+            myArray = new int [0];
         }
     }
+    // Fills the array with random integers
     public void fillRand() {
-        Random myRand = new Random();
-        for (int i = 0; i < length; i++){
-            int raNumber = myRand.nextInt(6)+ 1;
-            System.out.println(raNumber);
+        for (int i = 0; i < length; i++) {
+            Random myRand = new Random();
+            myArray[i] = 1 + myRand.nextInt(6);
         }
     }
-    public int get(int element ) {
-        return element;
+    public int get(int element) {
+        return myArray[element];
     }
     public void set(int element, int newValue) {
-        if (element >= 0 && element < length) {
-            myArray[element] = newValue;
-            System.out.println(newValue);
-        }
+        myArray[element] = newValue;
     }
     public int size() {
         return length;
@@ -40,9 +37,9 @@ public class IntArray {
         return length == 0;
     }
     public void sort() {
-        System.out.println(length);
+        Arrays.sort(myArray);
     }
     public String toString() {
-        return " IntArray instance data: " +  "\n";
+        return "IntArray instance data: " + "\n" + Arrays.toString(myArray);
     }
 }
