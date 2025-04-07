@@ -1,3 +1,4 @@
+import java.lang.Exception;
 /** This class determines the grade for an exam */
 
 public class Exam extends Assessment {
@@ -12,12 +13,24 @@ public class Exam extends Assessment {
      */
     
     public Exam (int questions, int missed) {
-        int numScore; // hold the exam score
+        int numScore = 0; // hold the exam score
+        
         // Set the fields for questions and missed.
         numMissed = missed;
+        
         // Calculating the points for each questions on the exam.
         pointsEach = 100 / questions;
-        numScore = (questions - missed) * pointsEach;
+        try {
+            numScore = (questions - missed) * pointsEach;
+            if(questions == 0 && missed == 0) {
+                throw new ArithmeticException("Can't divide by zero.");
+            }else {
+                System.out.println(numScore);
+            }
+        }catch(ArithmeticException e) {
+            System.out.println("Can't divide by zero.");
+        }
+        
         // Inhertited setScore method from class Assessment.
         setScore(numScore);
     }
